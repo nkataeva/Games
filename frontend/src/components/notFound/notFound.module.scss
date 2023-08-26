@@ -1,14 +1,14 @@
 @import '../../styles/vars.scss';
 
-.error {
+#box {
+    margin: 50px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: $gap;
-    margin-top: 200px;
-}
 
-.error__link {
-    text-decoration: none;
+    #link {
+        text-decoration: none;
+        color: rgb(93, 132, 199);
+    }
 }

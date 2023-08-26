@@ -1,15 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./notFound.module.scss"
+import styles from "./notFound.module.scss"
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 const NotFound = () => {
   return (
-    <div className="error">
-      <h1 className="error__title">404. Page not found</h1>
-      <Link to="/" className="error__link">
+    <Box id={styles.box}>
+      <Typography variant="h3">404</Typography>
+      <Typography variant="h5">Page not found</Typography>
+      <Link to="/" id={styles.link}>
         Вернуться на главную страницу
       </Link>
-    </div>
+    </Box>
   );
 };
 

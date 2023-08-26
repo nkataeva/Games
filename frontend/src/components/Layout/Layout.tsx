@@ -1,13 +1,12 @@
+import { Box } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <main>
-      <div>
+    <Box sx={{maxWidth: 1250, mx: 'auto', pt: 8}}>
         <Outlet />
-      </div>
-    </main>
+    </Box>
   );
 };
 
