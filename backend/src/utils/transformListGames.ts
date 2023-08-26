@@ -1,3 +1,5 @@
+import formatDate from "./formatDate";
+
 export interface GameFromList {
     id: number;
     title: string;
@@ -7,13 +9,13 @@ export interface GameFromList {
     image: string;
 }
 
-export const transformData = (gameData: any[]): GameFromList[] => {
+export const transformListGames = (gameData: any[]): GameFromList[] => {
     return gameData.map((item: any) => ({
         id: item.id,
         title: item.title,
         author: item.publisher,
         genre: item.genre,
-        date: item.release_date,
+        date: formatDate(item.release_date),
         image: item.thumbnail
     }));
 };

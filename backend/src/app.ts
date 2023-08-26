@@ -1,5 +1,5 @@
 import express, { Express } from 'express';
-import routes from './routes/gamesList';
+import routes from './routes/routesGame';
 import morgan from 'morgan';
 import VARS from './const';
 
@@ -10,7 +10,7 @@ app.use(morgan('dev'));
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', VARS.client);
-    res.header('Access-Control-Allow-Headers', 'origin, X-Requested-With,Content-Type,Accept, Authorization');
+    res.header('Access-Control-Allow-Headers', 'origin, Content-Type,Accept');
     if (req.method === 'OPTIONS') {
         res.header('Access-Control-Allow-Methods', 'GET');
         return res.status(200).json({});
