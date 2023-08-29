@@ -1,0 +1,25 @@
+@import '../../styles/vars.scss';
+
+#info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 20px;
+    gap: 20px;
+    color: $color;
+
+    #title {
+        color: $title;
+    }
+
+    #subtitle {
+        border-bottom: 1px solid rgb(110, 110, 110);
+        padding-bottom: 5px;
+    }
+
+    #container {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+}

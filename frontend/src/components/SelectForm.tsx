@@ -7,7 +7,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 interface propsSelectForm {
     name: string,
     options: string[],
-    value: string, // Текущее выбранное значение
+    value: string,
     onChange: (newValue: string) => void
 }
 

@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <Box sx={{maxWidth: 1250, mx: 'auto', pt: 8}}>
+    <Box sx={{maxWidth: 1250, mx: 'auto', pt: 5}}>
         <Outlet />
     </Box>
   );
