@@ -6,6 +6,7 @@ import { Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import styles from "./MainPage.module.scss";
+import GamesComponent from '../../components/Test';
 
 const MainPage = () => {
 
@@ -66,6 +67,8 @@ const MainPage = () => {
             <div id={styles.conatiner}>
                 {/* <Card /> */}
             </div>
+
+            <GamesComponent />
 
         </div>
     )
