@@ -14,7 +14,7 @@ const App = () => {
                 <Routes>
                     <Route element={<Layout />}>
                         <Route path={APPRoute.MAIN} element={<MainPage />} />
-                        <Route path={APPRoute.GAME } element={<GamePage />} />
+                        <Route path={APPRoute.GAME + APPRoute.ID } element={<GamePage />} />
                     </Route>
                     <Route path={APPRoute.NOTFOUND} element={<NotFound />} />
                 </Routes>

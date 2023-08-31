@@ -16,9 +16,12 @@ const currentGameSlice = createSlice({
     setCurrentGame: (state, action: PayloadAction<Game>) => {
       state.game = action.payload;
     },
+    clearCurrentGame: (state) => {
+      state.game = initialState.game;
+    }
   },
 });
 
-export const { setCurrentGame } = currentGameSlice.actions;
+export const { setCurrentGame, clearCurrentGame } = currentGameSlice.actions;
 
 export default currentGameSlice.reducer;

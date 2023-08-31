@@ -4,29 +4,35 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { GameFromList } from "../types/GamesTypes";
 
-const Card = () => {
+interface CardProps {
+    data: GameFromList,
+    onClick: () => void;
+}
+
+const Card = (props: CardProps) => {
     return (
-        <CardMUI sx={{ maxWidth: 245 }}>
+        <CardMUI sx={{ maxWidth: 245 }} onClick={props.onClick}>
             <CardActionArea>
                 <CardMedia
                     component="img"
                     height="140"
-                    image=""
+                    image={props.data.image}
                     alt="green iguana"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Lizard
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary"  mt={2} mb={5}>
-                        09.08.2023
+                        {props.data.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Приключения, боевик
+                        {props.data.date}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        {props.data.genre}
                     </Typography>
                     <Typography variant="body1" color="text.primary">
-                        Алексей Попов
+                        {props.data.author}
                     </Typography>
                 </CardContent>
             </CardActionArea>

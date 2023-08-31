@@ -1,3 +1,5 @@
+@import '../../styles/vars.scss'
+;
 #content {
     display: flex;
     flex-direction: column;
@@ -16,6 +18,9 @@
             max-height: 200px;
             margin: 0 10px;
         }
-    }
-    
+    }    
+}
+
+#btn {
+    margin: 0 auto;
 }

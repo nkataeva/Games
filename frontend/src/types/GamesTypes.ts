@@ -1,3 +1,16 @@
+export interface GameReq {
+    os: string;
+    processor: string;
+    memory: string;
+    graphics: string;
+    storage: string;
+}
+
+export interface Screenshots {
+    id: number;
+    image: string;
+}
+
 export interface Game {
     id: number,
     title: string,
@@ -6,17 +19,8 @@ export interface Game {
     date: string,
     genre: string,
     image: string
-    system_requirements: {
-        os: string;
-        processor: string;
-        memory: string;
-        graphics: string;
-        storage: string;
-    };
-    screenshots: {
-        id: number;
-        image: string;
-    }[];
+    system_requirements: GameReq;
+    screenshots: Screenshots[];
 }
 
 export interface GameFromList {
@@ -29,7 +33,7 @@ export interface GameFromList {
 }
 
 export interface GamesList {
-    games: GameFromList [];
+    games: GameFromList[];
 }
 
 export interface Options {

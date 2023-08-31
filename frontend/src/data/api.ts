@@ -11,13 +11,11 @@ export const getGames = async (options: Options | null) => {
     const response = await axios.post(`${API_BASE_URL}/games`, { options });
     const gamesData = response.data; // Предположим, что получили данные
     setGames(gamesData); // Заносим данные в хранилище
-    console.log(gamesData)
     return gamesData; // Возвращаем данные, если это нужно
   } catch (error) {
     throw error;
   }
 };
-
 
 export const getCurrentGameInfo = async (gameId: number) => {
     try {

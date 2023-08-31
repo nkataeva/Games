@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GamesList } from '../../types/GamesTypes';
+import { GamesList, GameFromList } from '../../types/GamesTypes';
 
 const initialState: GamesList  = {
   games: [],
@@ -9,8 +9,8 @@ const gamesSlice = createSlice({
   name: 'games list',
   initialState,
   reducers: {
-    setGames: (state, action: PayloadAction<GamesList>) => {
-      return action.payload;
+    setGames: (state, action: PayloadAction<GameFromList[]>) => {
+      state.games = action.payload;
     },
   },
 });
