@@ -30,8 +30,8 @@ const SelectForm = (props: propsSelectForm) => {
                 <MenuItem value="">
                     <em>None</em>
                 </MenuItem>
-                {props.options.map((el) =>
-                    <MenuItem value={el}>{el}</MenuItem>
+                {props.options.map((el, i) =>
+                    <MenuItem key={i} value={el}>{el}</MenuItem>
                 )}
             </Select>
         </FormControl>

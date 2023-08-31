@@ -4,8 +4,7 @@
 #content {
     display: flex;
     flex-direction: column;
-    gap: 50px;
-
+    gap: 30px;
 
     #main {
         display: flex;
@@ -22,9 +21,7 @@
     }
 
     #btn {
-        display: flex;
-        justify-content: center;
-        padding: 0;
+        margin: 0 auto;
     }
 }
 

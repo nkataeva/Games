@@ -33,17 +33,11 @@ const MainPage = () => {
         fetchGames();
     }, []);
 
-    React.useEffect(() => {
-        console.log(games)
-    }, [games])
-
-
     const [selectedOptions, setSelectedOptions] = React.useState({
         genre: '',
         platform: '',
         sort: '',
     });
-
 
     const handleApply = async () => {
         try {
@@ -53,7 +47,6 @@ const MainPage = () => {
             console.error('Error fetching games:', error);
             setError(true)
         }
-        console.log(selectedOptions);
     };
 
     const handleReset = () => {
@@ -107,8 +100,8 @@ const MainPage = () => {
             {!error ? (
                 games.length ? (
                     <div id={styles.container}>
-                        {games.map((el) => (
-                            <Card data={el} onClick={() => openGame(el.id)} />
+                        {games.map((el, i) => (
+                            <Card data={el} key={i} onClick={() => openGame(el.id)} />
                         ))}
                     </div>
                 ) : (

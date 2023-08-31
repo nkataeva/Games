@@ -20,8 +20,8 @@ const Stepper = (props: StepperProps) => {
 
         },
     };
-    const items = props.images.map((el) =>
-        <img src={el.image} className={styles.item} alt='screen'/>
+    const items = props.images.map((el, i) =>
+        <img key={i} src={el.image} className={styles.item} alt='screen'/>
     )
     return (
         <AliceCarousel mouseTracking disableDotsControls={true} items={items} responsive={responsive} />
