@@ -8,32 +8,35 @@ import Button from '@mui/material/Button';
 import styles from "./MainPage.module.scss";
 import { useDispatch, useSelector } from 'react-redux';
 import { getGames } from '../../data/api';
-import { setGames } from '../../store/features/gameListSlice';
 import { RootState } from '../../store/store';
-import { GamesList } from '../../types/GamesTypes';
 import { useNavigate } from 'react-router-dom';
 import { APPRoute } from '../../paths';
+import Error from '../../components/Error/Error';
 
 const MainPage = () => {
     const dispatch = useDispatch();
     const games = useSelector((state: RootState) => state.games.games);
+    const [error, setError] = React.useState(false)
 
     React.useEffect(() => {
         const fetchGames = async () => {
             try {
-                const gamesData = await getGames(null); // Получаем данные с сервера
-                dispatch(setGames(gamesData)); // Заносим данные в хранилище
+                if (games.length === 0) {
+                    const gamesData = await getGames(null, dispatch);
+                    setError(false)
+                }
             } catch (error) {
                 console.error('Error fetching games:', error);
+                setError(true)
             }
         };
         fetchGames();
-    }, [dispatch]);
+    }, []);
 
-    React.useEffect(() =>{
+    React.useEffect(() => {
         console.log(games)
     }, [games])
-    
+
 
     const [selectedOptions, setSelectedOptions] = React.useState({
         genre: '',
@@ -41,13 +44,14 @@ const MainPage = () => {
         sort: '',
     });
 
+
     const handleApply = async () => {
         try {
-            const gamesData = await getGames(selectedOptions); // Получаем данные с сервера
-            dispatch(setGames(gamesData)); // Заносим данные в хранилище
-            console.log(games)
+            const gamesData = await getGames(selectedOptions, dispatch);
+            setError(false)
         } catch (error) {
             console.error('Error fetching games:', error);
+            setError(true)
         }
         console.log(selectedOptions);
     };
@@ -100,11 +104,20 @@ const MainPage = () => {
                 <Button variant="outlined" onClick={handleReset}>Сбросить</Button>
             </Stack>
 
-            {games.length ? (<div id={styles.container}>
-                {games.map((el) =>
-                    <Card data={el} onClick={() => openGame(el.id)}/>
-                )}
-            </div>) : <CircularProgress sx={{m: '0 auto'}}/>}
+            {!error ? (
+                games.length ? (
+                    <div id={styles.container}>
+                        {games.map((el) => (
+                            <Card data={el} onClick={() => openGame(el.id)} />
+                        ))}
+                    </div>
+                ) : (
+                    <CircularProgress sx={{ m: '0 auto' }} />
+                )
+            ) : (
+                <Error />
+            )}
+
         </div>
     )
 }
